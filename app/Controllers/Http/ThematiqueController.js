@@ -50,14 +50,9 @@ class ThematiqueController {
      async index({view, request, response}) {
         const thematiques = await Thematique.all();
           
-        //Fetch all user's thematiques
         return view.render('thematique', { thematiques: thematiques.rows})
     }
-   // async index({request, response, view}) {
-        //const thematique = await Thematique.all();
-    
-        //return view.render('index', { thematique: thematique.rows})
-    //}
+  
 
     create({request, response, view}) {
         return view.render('thematique')

@@ -15,34 +15,33 @@ class ActualiteController {
     }
 
     create({request, response, view}) {
-        return view.render('actualite')
+        return view.render('Actualite.article')
     }
 
     async store({request, response, view, session}) {
         const actualite = new Actualite();
-        //const posted = await auth.user.thematiques().create({
-            //name: thematique.name,            
-        //});
-
-        actualite.name = request.input('name');
+        
+        actualite.title = request.input('title');
+        actualite.article = request.input('article');
+        actualite.photo = request.input('photo');
         await actualite.save();
-        //return response.json(thematique);
+       
 
         session.flash({ notification: 'Successfully create!' });
-        return response.route('Actualite.actualite')
+        return response.route('Actualite.article')
     }
 
     async edit({request, response, view, params}) {
         const id = params.id;
         const actualite = await Actualite.find(id);
 
-        return view.render('edit', {actualite : Actualite})
+        return view.render('article', {actualite : Actualite})
     }
 
     async update({request, response, view, params, session}) {
         const id = params.id;
         const actualite = await Actualite.find(id);
-        actualite.name = request.input('name'),
+        actualite.name = request.input('title'),
         await actualite.save();
 
         session.flash({ notification: 'Successfully update!' });

@@ -16,14 +16,8 @@
 /** @type {typeof import('@adoadonis make:validator LoginUsernisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-//Route.get('login', 'Auth/LoginController.login').as('login')
 
 Route.get('home', 'TestController.home').as('home')
-
-Route.get('article', 'ActualiteController.ShowActualite')
-
-//Route.get('thematique', 'ThematiqueController.ShowThematique').as('thematique')
-//Route.post('/thematique', 'ThematiqueController.create')
 
 Route.get('speakers', 'SpeakerController.ShowSpeakers')
 
@@ -37,21 +31,19 @@ Route.resource('speakers', 'SpeakerController').except(['index, show']).validato
 ]))
 
 //ajout thematique
-/*
-Route.get('/thematique/delete/:id', 'ThematiqueController.delete');
-Route.get('/thematique/edit/:id', 'ThematiqueController.edit');
-Route.post('/thematique/update/:id', 'ThematiqueController.update')
-//routes
-//Route.get('/login', 'UserController.login')
-*/
-
-//ajout thematique
 Route.get('/thematique', 'ThematiqueController.index').as('Thematique.index')
 Route.get('/thematique', 'ThematiqueController.thematique').as('Thematique.thematique')
 Route.post('/thematique', 'ThematiqueController.create')
 Route.get('/edit/:id', 'ThematiqueController.edit').as('Thematique.edit')
-//Route.post('/thematique', 'ThematiqueController.create')
 Route.get('/delete/:id', 'ThematiqueController.delete').as('Thematique.delete')
 Route.post('/store', 'ThematiqueController.store').as('Thematique.store')
-//Route.post('/update/:id', 'ThematiqueController.update').as('Thematique.update')
 Route.post('/update/:id', 'ThematiqueController.update').as('Thematique.update')
+
+//ajout article
+Route.get('/article', 'ActualiteController.index').as('Actualite.index')
+Route.get('/article', 'ActualiteController.article').as('Actualite.article')
+Route.post('/article', 'ActualiteController.create')
+Route.get('/edit/:id', 'ActualiteController.edit').as('Actualite.edit')
+Route.get('/delete/:id', 'ActualiteController.delete').as('Actualite.delete')
+Route.post('/stores', 'ActualiteController.store').as('Actualite.store')
+Route.post('/update/:id', 'ActualiteController.update').as('Actualite.update')

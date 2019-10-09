@@ -19,3 +19,12 @@
      name: faker.name()
    }
  })
+
+ Factory.blueprint('App/Models/Actualite', (faker) => {
+  return {
+    title: faker.username(),
+    article: faker.sentence(),
+    photo: faker.name(),
+  
+  }
+})
